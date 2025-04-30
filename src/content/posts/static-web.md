@@ -7,7 +7,7 @@ lang: ''
 published: 2024-11-28
 tags:
 - Vercel
-- Cloudflare Page
+- Cloudflare Pages
 - Netlify
 - Surge
 - Render

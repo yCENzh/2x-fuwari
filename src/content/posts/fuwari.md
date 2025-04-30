@@ -2,14 +2,14 @@
 category: 教程
 description: Fuwari是一个静态博客框架，Cloudflare Pages是一个托管静态网站的服务，将他俩结合即可得到一个快速安全无需托管的高效博客
 draft: false
-image: https://r2.072103.xyz/fuwari-blog/img/2024-10-15-09-04-45-image.webp
+image: https://r2.072103.xyz/myblog/img/f286ef4d-326c-4c7c-8a1e-ed150937a12b.webp
 lang: ''
-published: 2024-10-14
-tags:
-- Fuwari
-- Cloudflare Pages
+published: 2025-04-30
+tags: [Fuwari, Cloudflare Pages]
 title: Fuwari静态博客搭建教程
+
 ---
+
 ### 你需要准备的东西
 
 1. 一个牛逼的脑子，支持并行运算至少两个单位以上的事件。遇到问题先思考，想不通就搜索，搜索不到就去和AI调情，不要上来就问问问
@@ -82,7 +82,11 @@ title: Fuwari静态博客搭建教程
    
    - `NavBarConfig` 为导航栏设置的超链接。`ProfileConfig` 为你的用户的超链接，分别如图![](https://r2.072103.xyz/fuwari-blog/img/2024-10-15-17-49-30-image.webp)
    
-   - icon：你需要前往[Font Awesome](https://fontawesome.com/search)去搜索你想要的图标，比如QQ，则填写 `fa6-brands:qq` ，如图。Fuwari支持这几种类型：`fa6-brands`, `fa6-regular`, `fa6-solid`, `material-symbols`![](https://r2.072103.xyz/fuwari-blog/img/2024-10-15-17-47-10-image.webp)
+   - icon：你需要前往[icones.js](https://https://icones.js.org/)去搜索你想要的图标，比如QQ，则填写 `fa6-brands:qq` ，如图。Fuwari默认支持这几种类型：`fa6-brands`, `fa6-regular`, `fa6-solid`, `material-symbols`。可以在 `astro.config.mjs` 中搜索关键字进行配置
+   
+   - ![](https://r2.072103.xyz/myblog/img/1ef05530-10fd-4301-af4e-21ddadf18605.webp)
+   
+   - ![](https://r2.072103.xyz/myblog/img/da94494b-cc4b-4f07-ae95-8bf3b2f95d3c.webp)
    
    - 这里我附上我的 `config.ts` 
    

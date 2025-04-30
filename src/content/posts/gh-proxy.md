@@ -5,7 +5,7 @@ draft: false
 image: https://r2.072103.xyz/myblog/img/8bb2d8ae-1703-44e8-9f3b-10b46ab69913.webp
 lang: ''
 published: 2025-04-15
-tags: []
+tags: [Cloudflare Worker]
 title: 使用Cloudflare Worker搭建Github全站代理（防钓鱼）
 ---
 # 项目原理
