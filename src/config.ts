@@ -1,4 +1,5 @@
 import type {
+	ImageFallbackConfig,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -80,4 +81,10 @@ export const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
+export const imageFallbackConfig: ImageFallbackConfig = {
+	enable: true,
+	originalDomain: "r2.afo.im",
+	fallbackDomain: "pub-d433ca7edaa74994b3d7c40a7fd7d9ac.r2.dev",
 };
