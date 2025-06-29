@@ -10,7 +10,7 @@
 
 - 主节点1： https://www.afo.im （EdgeOne CDN Free回源Cloudflare）
 
-- 主节点2： https://afo.im （EdgeOne CDN Free回源Cloudflare 301到主节点1）
+- 主节点2： https://afo.im （EdgeOne CDN Free 301 到主节点1）
 
 - https://eopage-blog.afo.im （EdgeOne CDN Free回源EdgeOne Page）
 
