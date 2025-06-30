@@ -49,7 +49,13 @@ emm 这玩意吧 你们自己看速度吧
 
 # EdgeOne怎么做重定向？
 
-虽然EO默认有边缘函数支持重定向
+在这里
+
+![](https://free-eo-r2.afo.im/myblog/img/8f31d55f-4d0b-4209-935b-c2ec7924846c.webp)
+
+![](https://free-eo-r2.afo.im/myblog/img/5ca74214-b4d0-4ac1-9fab-06d3096a5f7e.webp)
+
+EO边缘函数也支持重定向，支持更细化的重定向规则
 
 但是这玩意记录请求数，不如用Cloudflare的重定向规则
 
