@@ -12,6 +12,6 @@
 
 - IP站点： https://46.232.60.28:44444
 
+神秘领域： https://info.php.afo.im
+
 ::github{repo="saicaca/fuwari"}
-
-
