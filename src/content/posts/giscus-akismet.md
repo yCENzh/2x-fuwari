@@ -76,3 +76,23 @@ lang: ''
 查看Github Action是否做出删评行为
 
 ![](../assets/images/2025-08-04-12-30-37-image.png)
+
+# 封禁用户
+
+> 如果有人一直刷屏但是反垃圾未检测到？
+
+你可以前往该用户个人信息页面手动封禁它
+
+详见 [阻止用户访问您的个人帐户 - GitHub 文档](https://docs.github.com/zh/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account#blocking-a-user-from-their-profile-page)
+
+
+
+# 防止新用户刷评
+
+> 如果有人一直开小号刷评？
+
+使用 https://github.com/你的用户名/你的仓库/settings/interaction_limits
+
+配置临时交互限制，这样新用户就无法对您的存储库进行任何操作
+
+![](../assets/images/2025-08-04-20-43-06-image.png)
