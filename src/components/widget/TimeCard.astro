@@ -10,58 +10,67 @@ const style = Astro.props.style;
 ---
 
 <WidgetLayout name="时光流逝" id="time-card" class={className} style={style}>
-    <div class="flex flex-col gap-3 text-sm">
-        <div id="current-date-text" class="text-center font-bold text-neutral-700 dark:text-neutral-300 mb-1">
+    <div class="flex flex-col gap-4 p-1">
+        <div id="current-date-text" class="text-center text-xs font-bold text-neutral-700 dark:text-neutral-300 tabular-nums tracking-wide">
             加载中...
         </div>
 
-        <div class="flex flex-col gap-1">
-            <div class="flex justify-between items-center text-xs text-neutral-500">
-                <span>今天已过去</span>
-                <span id="day-progress-text">0.00000%</span>
+        <div class="grid grid-cols-3 gap-3">
+            <div class="relative aspect-square flex items-center justify-center group cursor-help" id="day-progress-container">
+                <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" class="text-black/5 dark:text-white/5" />
+                    <circle id="day-progress-circle" cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round" class="text-[var(--primary)] transition-all duration-75 ease-linear" stroke-dasharray="282.743" stroke-dashoffset="282.743" />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span id="day-progress-text" class="text-sm font-bold text-neutral-600 dark:text-neutral-400 tabular-nums">0时</span>
+                    <span class="text-[0.6rem] text-neutral-400 dark:text-neutral-500 scale-90 origin-center font-medium">今日</span>
+                </div>
             </div>
-            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden">
-                <div id="day-progress-bar" class="h-2.5 rounded-full bg-blue-500 transition-all duration-500" style="width: 0%"></div>
+
+            <div class="relative aspect-square flex items-center justify-center group cursor-help" id="date-progress-container">
+                <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" class="text-black/5 dark:text-white/5" />
+                    <circle id="date-progress-circle" cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round" class="text-[var(--primary)] transition-all duration-75 ease-linear" stroke-dasharray="282.743" stroke-dashoffset="282.743" />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span id="date-progress-text" class="text-sm font-bold text-neutral-600 dark:text-neutral-400 tabular-nums">0日</span>
+                    <span class="text-[0.6rem] text-neutral-400 dark:text-neutral-500 scale-90 origin-center font-medium">日期</span>
+                </div>
+            </div>
+
+            <div class="relative aspect-square flex items-center justify-center group cursor-help" id="month-progress-container">
+                <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" class="text-black/5 dark:text-white/5" />
+                    <circle id="month-progress-circle" cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round" class="text-[var(--primary)] transition-all duration-75 ease-linear" stroke-dasharray="282.743" stroke-dashoffset="282.743" />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span id="month-progress-text" class="text-sm font-bold text-neutral-600 dark:text-neutral-400 tabular-nums">0天</span>
+                    <span class="text-[0.6rem] text-neutral-400 dark:text-neutral-500 scale-90 origin-center font-medium">本月</span>
+                </div>
             </div>
         </div>
 
-        <div class="flex flex-col gap-1">
-            <div class="flex justify-between items-center text-xs text-neutral-500">
-                <span>本周已过去</span>
-                <span id="week-progress-text">0.00000%</span>
+        <div class="grid grid-cols-2 gap-3">
+             <div class="relative aspect-square flex items-center justify-center group cursor-help" id="year-progress-container">
+                <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" class="text-black/5 dark:text-white/5" />
+                    <circle id="year-progress-circle" cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round" class="text-[var(--primary)] transition-all duration-75 ease-linear" stroke-dasharray="282.743" stroke-dashoffset="282.743" />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span id="year-progress-text" class="text-xl font-bold text-neutral-600 dark:text-neutral-400 tabular-nums">0月</span>
+                    <span class="text-xs text-neutral-400 dark:text-neutral-500 scale-90 origin-center font-medium">今年</span>
+                </div>
             </div>
-            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden">
-                <div id="week-progress-bar" class="h-2.5 rounded-full bg-green-500 transition-all duration-500" style="width: 0%"></div>
-            </div>
-        </div>
 
-        <div class="flex flex-col gap-1">
-            <div class="flex justify-between items-center text-xs text-neutral-500">
-                <span>本月已过去</span>
-                <span id="month-progress-text">0.00000%</span>
-            </div>
-            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden">
-                <div id="month-progress-bar" class="h-2.5 rounded-full bg-yellow-500 transition-all duration-500" style="width: 0%"></div>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-1">
-            <div class="flex justify-between items-center text-xs text-neutral-500">
-                <span>今年已过去</span>
-                <span id="year-progress-text">0.00000%</span>
-            </div>
-            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden">
-                <div id="year-progress-bar" class="h-2.5 rounded-full bg-red-500 transition-all duration-500" style="width: 0%"></div>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-1">
-            <div class="flex justify-between items-center text-xs text-neutral-500">
-                <span>站长人生已过去</span>
-                <span id="life-progress-text">0.00000%</span>
-            </div>
-            <div class="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden">
-                <div id="life-progress-bar" class="h-2.5 rounded-full bg-purple-500 transition-all duration-500" style="width: 0%"></div>
+            <div class="relative aspect-square flex items-center justify-center group cursor-help" id="life-progress-container">
+                <svg class="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" class="text-black/5 dark:text-white/5" />
+                    <circle id="life-progress-circle" cx="50" cy="50" r="45" stroke="currentColor" stroke-width="8" fill="transparent" stroke-linecap="round" class="text-[var(--primary)] transition-all duration-75 ease-linear" stroke-dasharray="282.743" stroke-dashoffset="282.743" />
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span id="life-progress-text" class="text-xl font-bold text-neutral-600 dark:text-neutral-400 tabular-nums">0岁</span>
+                    <span class="text-xs text-neutral-400 dark:text-neutral-500 scale-90 origin-center font-medium">人生</span>
+                </div>
             </div>
         </div>
     </div>
@@ -70,8 +79,6 @@ const style = Astro.props.style;
 <script>
     function updateTimeCard() {
         const now = new Date();
-        
-        // Update Date Text
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
         const day = String(now.getDate()).padStart(2, '0');
@@ -80,9 +87,12 @@ const style = Astro.props.style;
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
+        const milliseconds = String(now.getMilliseconds()).padStart(3, '0').slice(0, 1);
+        
+        // Update Header
         const dateText = document.getElementById('current-date-text');
         if (dateText) {
-            dateText.textContent = `今天是 ${year}年${month}月${day}日 星期${weekDay} ${hours}:${minutes}:${seconds}`;
+            dateText.textContent = `${year}年${month}月${day}日 星期${weekDay} ${hours}:${minutes}:${seconds}.${milliseconds}`;
         }
 
         // Calculations
@@ -90,57 +100,66 @@ const style = Astro.props.style;
         const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
         const dayProgress = (now.getTime() - startOfDay.getTime()) / (endOfDay.getTime() - startOfDay.getTime()) * 100;
 
-        const currentDay = now.getDay() || 7; // 1-7 (Mon-Sun), making Sunday 7 for calculation if week starts on Monday, but let's stick to standard 0-6 or adjust based on locale. Let's assume week starts on Monday for "This week passed".
-        // Actually standard getDay() is 0 (Sun) to 6 (Sat).
-        // Let's assume Week starts on Monday.
-        const startOfWeek = new Date(now);
-        const dayOfWeek = now.getDay(); // 0 (Sun) - 6 (Sat)
-        const diffToMonday = (dayOfWeek + 6) % 7; // Mon=0, Tue=1, ..., Sun=6
-        startOfWeek.setDate(now.getDate() - diffToMonday);
-        startOfWeek.setHours(0, 0, 0, 0);
-        const endOfWeek = new Date(startOfWeek);
-        endOfWeek.setDate(startOfWeek.getDate() + 7);
-        const weekProgress = (now.getTime() - startOfWeek.getTime()) / (endOfWeek.getTime() - startOfWeek.getTime()) * 100;
-
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-        const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999); // Last day of month
-        // Actually easiest is start of next month - start of this month
         const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+        const daysInMonth = (nextMonth.getTime() - startOfMonth.getTime()) / (1000 * 60 * 60 * 24);
         const monthProgress = (now.getTime() - startOfMonth.getTime()) / (nextMonth.getTime() - startOfMonth.getTime()) * 100;
 
         const startOfYear = new Date(now.getFullYear(), 0, 1);
         const nextYear = new Date(now.getFullYear() + 1, 0, 1);
         const yearProgress = (now.getTime() - startOfYear.getTime()) / (nextYear.getTime() - startOfYear.getTime()) * 100;
 
-        // Life Progress (Born: 2007-09-20, Expectancy: 80 years)
         const birthDate = new Date('2007-09-20T00:00:00');
-        const deathDate = new Date('2107-09-20T00:00:00'); // 80 years
+        const deathDate = new Date('2107-09-20T00:00:00'); // 100 years? User code said 80 years but logic was 2107-2007 = 100.
+        // Re-checking previous code: 2007 to 2107 is 100 years. Previous comment said "80 years" but code used 2107. I'll stick to code.
         const lifeProgress = Math.max(0, Math.min(100, (now.getTime() - birthDate.getTime()) / (deathDate.getTime() - birthDate.getTime()) * 100));
 
-        // Update DOM
-        const updateBar = (idPrefix: string, value: number) => {
-            const textEl = document.getElementById(`${idPrefix}-text`);
-            const barEl = document.getElementById(`${idPrefix}-bar`);
-            if (textEl) textEl.textContent = `${value.toFixed(5)}%`;
-            if (barEl) barEl.style.width = `${value}%`;
+        // Update Rings
+        const updateRing = (idPrefix: string, percent: number, textDisplay: string, tooltipText: string) => {
+            const circle = document.getElementById(`${idPrefix}-circle`);
+            const text = document.getElementById(`${idPrefix}-text`);
+            const container = document.getElementById(`${idPrefix}-container`);
+            
+            if (circle) {
+                const r = 45;
+                const c = 2 * Math.PI * r;
+                const offset = c - (percent / 100) * c;
+                circle.style.strokeDashoffset = String(offset);
+            }
+            if (text) {
+                text.textContent = textDisplay;
+            }
+            if (container) {
+                container.title = tooltipText;
+            }
         };
 
-        updateBar('day-progress', dayProgress);
-        updateBar('week-progress', weekProgress);
-        updateBar('month-progress', monthProgress);
-        updateBar('year-progress', yearProgress);
-        updateBar('life-progress', lifeProgress);
+        // Day: Hours passed
+        updateRing('day-progress', dayProgress, `${now.getHours()}时`, `今天已过去 ${dayProgress.toFixed(4)}%`);
+        
+        // Date: Current Date (Progress = Month Progress or Day Progress? Let's use Month Progress for consistency with "Date position in month")
+        // User requested "Week -> Current Date".
+        // Progress of Date Ring: (DayOfMonth / DaysInMonth) * 100?
+        // Or just the same as Month Progress?
+        // Let's use (now.getDate() / daysInMonth * 100) which is slightly different from monthProgress (which includes time).
+        // Let's use precise monthProgress for smooth animation.
+        updateRing('date-progress', monthProgress, `${now.getDate()}日`, `当前日期: ${year}年${month}月${day}日`);
+
+        // Month: Days passed
+        updateRing('month-progress', monthProgress, `${now.getDate()}天`, `本月已过去 ${monthProgress.toFixed(4)}%`);
+
+        // Year: Months passed
+        updateRing('year-progress', yearProgress, `${now.getMonth()}月`, `今年已过去 ${yearProgress.toFixed(4)}%`);
+
+        // Life: Years passed
+        const age = now.getFullYear() - 2007; // Approximate
+        updateRing('life-progress', lifeProgress, `${age}岁`, `人生已过去 ${lifeProgress.toFixed(5)}%`);
     }
 
-    // Initial call
     updateTimeCard();
+    setInterval(updateTimeCard, 50);
 
-    // Update every 50ms for smooth effect (or 1s if less precision is fine, but 5 decimal places imply high precision)
-    setInterval(updateTimeCard, 100);
-    
-    // Handle view transitions if any
     document.addEventListener('astro:page-load', () => {
         updateTimeCard();
     });
 </script>
-
