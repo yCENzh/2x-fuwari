@@ -45,17 +45,13 @@ const { remarkPluginFrontmatter } = await entry.render();
 <div class:list={["card-base flex flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative", className]} style={style}>
     <div class:list={["pl-9 pr-2 pt-6 pb-6 relative", {"w-[calc(100%_-_52px_-_12px)]": !hasCover, "w-[calc(100%_-_var(--coverWidth)_-_12px)]": hasCover}]}>
         <a href={url}
-           class="transition group w-full block font-bold mb-2 md:mb-3 text-xl md:text-3xl text-90
+           class="transition group w-full block font-bold mb-2 md:mb-3 text-xl md:text-3xl text-90 relative
         hover:text-[var(--primary)] dark:hover:text-[var(--primary)]
         active:text-[var(--title-active)] dark:active:text-[var(--title-active)]
         before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
-        before:absolute before:top-[28px] md:before:top-[32px] before:left-[18px] before:block
+        before:absolute before:top-1 md:before:top-2 before:-left-[1.125rem] before:block
         ">
-            {isPinned && (
-                <span class="inline-flex items-center mr-2 px-2 py-0.5 text-sm font-medium bg-[oklch(95%_0.2_var(--hue))] dark:bg-[oklch(25%_0.2_var(--hue))] text-[oklch(55%_0.2_var(--hue))] dark:text-[oklch(85%_0.2_var(--hue))] rounded">
-                    <Icon name="material-symbols:push-pin" class="mr-1 text-base" /> 置顶
-                </span>
-            )}
+
             {title}
             <Icon class="text-[var(--primary)] text-[2rem] transition inline absolute translate-y-0.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0" name="material-symbols:chevron-right-rounded"></Icon>
         </a>
