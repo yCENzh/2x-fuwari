@@ -47,6 +47,19 @@ export function setRainbowSpeed(speed: number): void {
 	localStorage.setItem("rainbow-speed", String(speed));
 }
 
+export function getBgBlur(): number {
+	const stored = localStorage.getItem("bg-blur");
+	return stored ? Number.parseInt(stored) : 0; // Default blur is 0
+}
+
+export function setBgBlur(blur: number): void {
+	localStorage.setItem("bg-blur", String(blur));
+	const bgBox = document.getElementById("bg-box");
+	if (bgBox) {
+		bgBox.style.setProperty("filter", `blur(${blur}px)`);
+	}
+}
+
 export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
 	switch (theme) {
 		case LIGHT_MODE:
