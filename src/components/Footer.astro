@@ -79,11 +79,43 @@ try {
             valueSpan.innerText = '检测中...';
             div.appendChild(valueSpan);
 
-            return { div, valueSpan };
+            const iconImg = document.createElement('img');
+            iconImg.className = 'server-icon h-5 ml-1 hidden';
+            iconImg.alt = 'Server Icon';
+            div.appendChild(iconImg);
+
+            return { div, valueSpan, iconImg };
         }
 
         function updateEntryDisplay(elements, server) {
-            elements.valueSpan.innerText = server || "未知";
+            const { valueSpan, iconImg } = elements;
+            
+            if (server) {
+                const serverLower = server.toLowerCase();
+                let iconSrc = null;
+
+                if (serverLower.includes('esa')) {
+                    iconSrc = '/cdn/Hosted-ESA-#FF6A00.svg';
+                } else if (serverLower.includes('edgeone')) {
+                    iconSrc = '/cdn/Hosted-EdgeOne-#00a3ff.svg';
+                } else if (serverLower.includes('cloudflare')) {
+                    iconSrc = '/cdn/Hosted-Cloudflare-#F48120.svg';
+                }
+
+                if (iconSrc) {
+                    iconImg.src = iconSrc;
+                    iconImg.classList.remove('hidden');
+                    valueSpan.classList.add('hidden');
+                } else {
+                    valueSpan.innerText = server;
+                    iconImg.classList.add('hidden');
+                    valueSpan.classList.remove('hidden');
+                }
+            } else {
+                valueSpan.innerText = "未知";
+                iconImg.classList.add('hidden');
+                valueSpan.classList.remove('hidden');
+            }
         }
 
         async function checkServer(url) {
