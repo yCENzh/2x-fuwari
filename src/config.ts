@@ -12,9 +12,9 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const noticeConfig: NoticeConfig = {
-    enable: false,
-    level: "happy",
-    content: "元宝发红包了！看置顶文章！",
+	enable: false,
+	level: "happy",
+	content: "元宝发红包了！看置顶文章！",
 };
 
 export const siteConfig: SiteConfig = {
@@ -130,7 +130,7 @@ export const profileConfig: ProfileConfig = {
 			name: "GitHub",
 			icon: "github", // Local icon
 			url: "https://github.com/afoim",
-		}
+		},
 	],
 };
 
