@@ -12,9 +12,9 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const noticeConfig: NoticeConfig = {
-	enable: false,
+	enable: true,
 	level: "happy",
-	content: "元宝发红包了！看置顶文章！",
+	content: "由于被博客被长期DDOS攻击，我们决定将博客所有域名，包括但不限于： acofork.com, 2b2x.cn, 0d.hk, 2x.nz 等，全部改为使用Cloudflare CDN提供服务。若有Bug请及时反馈，感谢各位一路以来的理解与支持。",
 };
 
 export const siteConfig: SiteConfig = {
